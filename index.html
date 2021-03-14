@@ -6,10 +6,12 @@
 -->
 <html>
 	<head>
-		<title>Photon by HTML 5</title>
+		<title>George Carter Web Developer</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap" rel="stylesheet">
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -17,7 +19,7 @@
 		<!-- Header -->
 			<section id="header">
 				<div class="inner">
-					<span class="icon solid major fa-cloud"></span>
+					<span class="icon solid major fa-coffee"></span>
 					<h1>Hi, I'm <strong>George Carter</strong>, a web developer<br />
 					interested in full-stack development. Find me on <a href="https://www.linkedin.com/in/george-chris-carter/">LinkedIn</a>.</h1>
 					<p>Experience with Ruby, Ruby on Rails, CSS, HTML, APIs, OOP, Javascript, Vue.js, Git, and Mac OS </p>
@@ -113,11 +115,22 @@
 					<header class="major">
 						<h2>Want to get in touch?</h2>
 					</header>
-					<p>I'd love to hear from you. Let's work together!</p>
-					<ul class="actions special">
+					<p>I'd love to hear from you. Let's work together!<form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/{form_id}" method="post">
+						<fieldset id="fs-frm-inputs">
+							<label for="full-name">Full Name</label>
+							<input type="text" name="name" id="full-name" placeholder="First and Last Name" required="">
+							<label for="email-address">Email Address</label>
+							<input type="email" name="_replyto" id="email-address" placeholder="email@domain.tld" required="">
+							<label for="message">Message</label>
+							<textarea rows="5" name="message" id="message" placeholder="Please write a brief message and I'll get back to you. Looking forward to being in-touch!" required=""></textarea>
+							<input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+						</fieldset>
+						<input type="submit" value="Submit">
+					</form></p>
+					<!-- <ul class="actions special">
 						<li><a href="#" class="button wide primary">Email</a></li>
 						<li><a href="#" class="button wide">Contact Info</a></li>
-					</ul>
+					</ul> -->
 				</div>
 			</section>
 
@@ -449,7 +462,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					<li><a href="gchriscarter@gmail.com" class="icon solid alt fa-envelope"><span class="label">Gmail</span></a></li>
 				</ul>
 				<ul class="copyright">
-					<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					<li>&copy; George Carter 2021</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 				</ul>
 			</section>
 
