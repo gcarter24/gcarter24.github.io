@@ -1,483 +1,752 @@
-<!DOCTYPE HTML>
-<!--
-	Photon by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>George "Chris" Carter - Web Developer</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap" rel="stylesheet">
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Chris Carter, software engineer</title>
+	<meta name="description" content="George 'Chris' Carter is a senior full-stack software engineer building Ruby on Rails applications for Mass General Brigham.">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Literata:opsz,wght@7..72,400&display=swap" rel="stylesheet">
+	<meta property="og:title" content="Chris Carter, software engineer">
+	<meta property="og:description" content="Senior full-stack engineer building Ruby on Rails applications for Mass General Brigham. Ten years in theater before that.">
+	<meta property="og:type" content="website">
+	<script>
+		// Apply a saved theme before first paint so there is no flash.
+		try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+	</script>
+	<style>
+		:root {
+			--paper: #F3F4F1;
+			--rail: #E6E9E3;
+			--ink: #17201B;
+			--muted: #5C6660;
+			--rule: #CBD1C8;
+			--grid: rgba(243, 244, 241, 0.09);
+			--hero-bg: #17201B;
+			--hero-ink: #F3F4F1;
+			--map-bg: #D3DAD0;
+			--land: #F7F8F5;
+			--coast: #7E8A80;
+			--amber: #B9771A;
+			--tip-bg: #17201B;
+			--tip-ink: #F3F4F1;
+			--role-junior: #3F8A58;
+			--role-lead: #3F6FB5;
+			--role-senior: #B9771A;
+			--display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+			--body: "Literata", Georgia, "Times New Roman", serif;
+		}
+		@media (prefers-color-scheme: dark) {
+			:root:not([data-theme="light"]) {
+				--paper: #141A16; --rail: #1B2320; --ink: #E8EAE4; --muted: #A3ACA5; --rule: #334039;
+				--grid: rgba(232, 234, 228, 0.07); --hero-bg: #0E1310; --hero-ink: #E8EAE4; --map-bg: #0B100D; --land: #35433B; --coast: #7A867E; --amber: #D9A04B; --tip-bg: #E8EAE4; --tip-ink: #141A16;
+				--role-junior: #4FA366; --role-lead: #5F8FD6; --role-senior: #BB8632;
+			}
+		}
+		:root[data-theme="dark"] {
+			--paper: #141A16; --rail: #1B2320; --ink: #E8EAE4; --muted: #A3ACA5; --rule: #334039;
+			--grid: rgba(232, 234, 228, 0.07); --hero-bg: #0E1310; --hero-ink: #E8EAE4; --map-bg: #0B100D; --land: #35433B; --coast: #7A867E; --amber: #D9A04B; --tip-bg: #E8EAE4; --tip-ink: #141A16;
+			--role-junior: #4FA366; --role-lead: #5F8FD6; --role-senior: #BB8632;
+		}
 
-		<!-- Header -->
-			<section id="header">
-				<div class="inner">
-					<span class="icon solid major fa-coffee"></span>
-					<h1>Hi, I'm <strong>George "Chris" Carter</strong>, a web developer<br />
-					interested in full-stack development. Find me on <a href="https://www.linkedin.com/in/george-chris-carter/">LinkedIn</a>.</h1>
-					<p>Experience with Ruby, Ruby on Rails, CSS, HTML, APIs, OOP, Javascript, Vue.js, Git, and Mac OS </p>
-					<ul class="actions special">
-						<li><a href="#one" class="button scrolly">Discover</a></li>
+		* { box-sizing: border-box; }
+		html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+		body {
+			margin: 0;
+			background: var(--paper);
+			color: var(--ink);
+			font-family: var(--body);
+			font-size: 1.0625rem;
+			line-height: 1.6;
+			font-feature-settings: "kern", "liga", "onum";
+		}
+		a { color: inherit; text-decoration: underline; text-decoration-color: var(--amber); text-decoration-thickness: 1.5px; text-underline-offset: 0.16em; }
+		a:hover { color: var(--amber); }
+		:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+		p { margin: 0 0 1.1em; max-width: 70ch; }
+		h1, h2, h3 { font-family: var(--display); font-weight: 600; letter-spacing: -0.015em; line-height: 1.08; margin: 0; }
+
+		/* Frame: rail + reading column */
+		.frame { display: grid; grid-template-columns: 17rem minmax(0, 1fr); min-height: 100vh; }
+		.frame > * { min-width: 0; }
+		.rail {
+			background: var(--rail);
+			padding: 2.5rem 2rem;
+			position: sticky; top: 0; height: 100vh;
+			display: flex; flex-direction: column; gap: 2.25rem;
+			border-right: 1px solid var(--rule);
+		}
+		.rail .name { font-family: var(--display); font-weight: 700; font-size: 1.5rem; line-height: 1.1; letter-spacing: -0.02em; }
+		.rail .name small { display: block; font-family: var(--body); font-weight: 400; font-size: 0.95rem; color: var(--muted); margin-top: 0.5rem; letter-spacing: 0; line-height: 1.4; }
+		.rail ul { list-style: none; margin: 0; padding: 0; }
+		.rail nav li { margin: 0 0 0.35rem; }
+		.rail nav a { display: inline-block; font-family: var(--display); font-size: 1.05rem; font-weight: 500; text-decoration: none; padding-left: 0; transition: padding-left 160ms ease; }
+		.rail nav a:hover { text-decoration: underline; text-decoration-color: var(--amber); }
+		.rail nav a[aria-current="true"] { padding-left: 0.85rem; position: relative; }
+		.rail nav a[aria-current="true"]::before { content: ""; position: absolute; left: 0; top: 50%; width: 0.45rem; height: 2px; background: var(--amber); }
+		.rail .links { margin-top: auto; }
+		.rail .links li { margin: 0 0 0.4rem; font-size: 0.95rem; overflow-wrap: anywhere; }
+		.rail .resume {
+			display: inline-block; font-family: var(--display); font-weight: 600; font-size: 1rem;
+			color: var(--paper); background: var(--ink); padding: 0.65rem 1rem; text-decoration: none; border-radius: 3px; margin-bottom: 1.25rem;
+		}
+		.rail .resume:hover { background: var(--amber); color: var(--paper); }
+		.theme {
+			margin-top: 1rem; font: 500 0.85rem var(--display); color: var(--muted);
+			background: transparent; border: 1px solid var(--rule); border-radius: 999px; padding: 0.3rem 0.8rem; cursor: pointer;
+		}
+		.theme:hover { color: var(--ink); border-color: var(--ink); }
+		.photo { margin: -0.75rem 0 0; max-width: 11rem; }
+		.photo img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 15%; display: block; border-radius: 4px; }
+
+		main { --gutter: clamp(1.25rem, 5vw, 4rem); min-width: 0; }
+		.page { padding: 0 var(--gutter) 5rem; max-width: 64rem; margin: 0 auto; }
+		section { padding-top: 5rem; }
+		section + section { margin-top: 1rem; border-top: 1px solid var(--rule); }
+		h2 { font-size: clamp(1.6rem, 2.4vw, 2rem); margin-bottom: 1.75rem; padding-left: 0.9rem; border-left: 3px solid var(--amber); }
+
+		/* Hero: a dark panel with a faint drafting grid */
+		.hero {
+			background: var(--hero-bg); color: var(--hero-ink);
+			padding: 6rem 0 4.5rem;
+			min-height: min(70vh, 38rem); display: flex; flex-direction: column; justify-content: center;
+			position: relative; isolation: isolate;
+		}
+		.hero .inner { max-width: 64rem; margin: 0 auto; padding: 0 var(--gutter); width: 100%; }
+		.hero::before {
+			content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+			background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+			background-size: 2rem 2rem;
+			-webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent 100%);
+			mask-image: linear-gradient(to bottom, #000 30%, transparent 100%);
+		}
+		.hero h1 { font-size: clamp(2.4rem, 5.2vw, 4.4rem); font-weight: 700; max-width: 19ch; line-height: 1.0; letter-spacing: -0.03em; }
+		.hero p { margin-top: 2rem; font-size: 1.2rem; max-width: 52ch; color: #D9A04B; }
+		/* The one page-load moment: hero rises in, then the subhead. */
+		@keyframes rise { from { opacity: 0; transform: translateY(0.6rem); } to { opacity: 1; transform: none; } }
+		.hero h1 { animation: rise 640ms cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+		.hero p { animation: rise 640ms 180ms cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+		@media (prefers-reduced-motion: reduce) {
+			html { scroll-behavior: auto; }
+			.hero h1, .hero p { animation: none; }
+			.rail nav a { transition: none; }
+		}
+
+		/* Figures row */
+		.figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem 2rem; margin: 0 0 3rem; padding: 0; max-width: 56rem; }
+		.figures div { border-top: 2px solid var(--ink); padding-top: 0.6rem; }
+		.figures div:nth-child(1) { border-top-color: var(--role-junior); }
+		.figures div:nth-child(2) { border-top-color: var(--role-senior); }
+		.figures div:nth-child(3) { border-top-color: var(--role-lead); }
+		.figures div:nth-child(4) { border-top-color: var(--amber); }
+		.figures dt { font-family: var(--display); font-size: 1.9rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1; }
+		.figures dd { margin: 0.35rem 0 0; font-size: 0.95rem; color: var(--muted); line-height: 1.4; }
+
+		/* Timeline: ten apps across five years */
+		.timeline { margin: 0 0 3.5rem; }
+		.timeline h3 { font-size: 1.25rem; margin-bottom: 0.35rem; }
+		.timeline > p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.25rem; }
+		.tl { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); column-gap: 1rem; row-gap: 0.55rem; align-items: center; }
+		.tl .lab { font-family: var(--display); font-weight: 600; font-size: 0.95rem; line-height: 1.2; text-align: right; }
+		.tl .lab small { display: block; font-family: var(--body); font-weight: 400; color: var(--muted); font-size: 0.8rem; }
+		.tl .track { display: grid; grid-template-columns: repeat(59, minmax(0, 1fr)); position: relative; height: 14px; }
+		.tl .track.years { height: 1.2rem; margin-bottom: 0.2rem; }
+		.tl .years span { grid-row: 1; font: 500 0.78rem var(--display); color: var(--muted); border-left: 1px solid var(--rule); padding-left: 0.3rem; line-height: 1.2rem; }
+		.tl .roles { height: 1.35rem; }
+		.tl .roles span {
+			grid-row: 1; height: 100%; display: flex; align-items: center; padding: 0 0.4rem; overflow: hidden; white-space: nowrap;
+			font: 600 0.72rem var(--display); color: #fff; border-radius: 3px; margin-right: 2px;
+		}
+		.tl .roles .junior { background: var(--role-junior); }
+		.tl .roles .lead { background: var(--role-lead); }
+		.tl .roles .senior { background: var(--role-senior); color: #17201B; }
+		.tl .bar {
+			grid-row: 1; height: 10px; background: var(--ink); border-radius: 0 4px 4px 0; border: 0; padding: 0; cursor: default; position: relative; align-self: center;
+		}
+		.tl .bar.closed { border-radius: 4px; }
+		.tl .bar:hover, .tl .bar:focus-visible { background: var(--amber); }
+		.tl .bar[data-tip]::after {
+			content: attr(data-tip); position: absolute; left: 0; bottom: calc(100% + 8px); z-index: 2;
+			background: var(--tip-bg); color: var(--tip-ink); font: 500 0.8rem/1.3 var(--display); padding: 0.35rem 0.6rem; border-radius: 4px; white-space: nowrap;
+			opacity: 0; pointer-events: none; transform: translateY(3px); transition: opacity 120ms ease, transform 120ms ease;
+		}
+		.tl .bar:hover::after, .tl .bar:focus-visible::after { opacity: 1; transform: none; }
+		.tl .now { grid-row: 1; grid-column: 59; border-left: 1.5px dashed var(--muted); height: 100%; }
+		.tl .rule { grid-column: 1 / -1; border-top: 1px solid var(--rule); height: 0; }
+		.legend { display: flex; flex-wrap: wrap; gap: 0.35rem 1.5rem; margin: 1rem 0 0; padding: 0; list-style: none; font-size: 0.88rem; color: var(--muted); }
+		.legend span { display: inline-block; width: 0.9rem; height: 0.6rem; border-radius: 2px; margin-right: 0.4rem; vertical-align: baseline; }
+		.tl-table { margin-top: 0.75rem; font-size: 0.9rem; }
+		.tl-table summary { cursor: pointer; color: var(--muted); font-family: var(--display); font-weight: 500; }
+		.tl-table table { border-collapse: collapse; margin-top: 0.75rem; width: 100%; max-width: 40rem; }
+		.tl-table th, .tl-table td { text-align: left; padding: 0.35rem 0.75rem 0.35rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+		.tl-table th { font-family: var(--display); font-weight: 600; }
+
+		/* Build list */
+		.build { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+		.build > li { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 0.5rem 2rem; padding: 1.5rem 0; border-bottom: 1px solid var(--rule); }
+		.build > li:last-child { border-bottom: 0; }
+		.build h3 { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.01em; }
+		.build .when { font-family: var(--body); font-size: 0.9rem; color: var(--muted); margin-top: 0.4rem; }
+		.build p { margin: 0 0 0.5rem; max-width: 68ch; }
+		.build .stack { font-family: var(--display); font-size: 0.9rem; color: var(--muted); font-weight: 500; }
+		.build .stack span + span::before { content: ", "; }
+		.build details { margin-top: 0.75rem; max-width: 68ch; }
+		.build summary {
+			cursor: pointer; list-style: none; display: inline-flex; align-items: center; gap: 0.5rem;
+			font: 600 0.9rem var(--display); color: var(--ink); padding: 0.3rem 0; border-bottom: 1.5px solid var(--amber);
+		}
+		.build summary::-webkit-details-marker { display: none; }
+		.build summary::before { content: "+"; font-weight: 600; width: 1em; display: inline-block; transition: transform 160ms ease; }
+		.build details[open] summary::before { transform: rotate(45deg); }
+		.build details ul { margin: 0.75rem 0 0; padding-left: 1.1rem; font-size: 0.98rem; }
+		.build details li { margin-bottom: 0.35rem; }
+		@keyframes open { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+		.build details[open] ul { animation: open 200ms ease both; }
+		@media (prefers-reduced-motion: reduce) { .build details[open] ul { animation: none; } .build summary::before { transition: none; } }
+
+		/* Skills */
+		.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 3rem; margin: 0; padding: 0; }
+		.skills .core { grid-column: 1 / -1; }
+		.skills dt { font-family: var(--display); font-weight: 600; font-size: 1.05rem; margin-bottom: 0.5rem; }
+		.skills dd { margin: 0; }
+		.tags { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0; padding: 0; }
+		.tags li { font: 500 0.88rem/1.2 var(--display); color: var(--ink); border: 1px solid var(--rule); border-radius: 999px; padding: 0.3rem 0.75rem; }
+		.core .tags li { background: var(--ink); color: var(--paper); border-color: var(--ink); font-weight: 600; }
+
+		/* Off hours */
+		.off { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
+		.off h3 { font-size: 1.25rem; margin-bottom: 0.6rem; font-weight: 700; }
+		.off p { font-size: 1rem; }
+		.off figure { margin: 0 0 1rem; }
+		.off img { width: 100%; height: auto; display: block; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; }
+
+
+		/* Where I've been: two map panels */
+		.where { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+		.where h3 { font-size: 1.25rem; margin-bottom: 0.35rem; }
+		.where > p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.25rem; }
+		.maps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+		.map { width: 100%; height: auto; display: block; background: var(--map-bg); border-radius: 4px; }
+		.map .land { fill: var(--land); stroke: var(--coast); stroke-width: 1; }
+		.map .border { fill: none; stroke: var(--coast); stroke-width: 0.7; stroke-opacity: 0.85; }
+		.map .dot { fill: var(--land); stroke: var(--ink); stroke-width: 1.6; cursor: default; }
+		.map .dot.ie { fill: var(--amber); stroke: var(--amber); }
+		.map .dot:hover, .map .dot:focus { stroke: var(--amber); stroke-width: 2.4; outline: none; }
+		.legend .sw { width: 0.7rem; height: 0.7rem; border-radius: 50%; border: 1.6px solid var(--ink); background: var(--paper); margin-right: 0.45rem; vertical-align: -0.05em; }
+		.legend .sw.ie { background: var(--amber); border-color: var(--amber); }
+		.places { columns: 3; column-gap: 2rem; margin: 0.75rem 0 0; padding-left: 1.1rem; font-size: 0.95rem; }
+		.places li { break-inside: avoid; }
+
+		/* Contact */
+		form { max-width: 34rem; }
+		label { display: block; font-family: var(--display); font-weight: 600; margin: 1rem 0 0.35rem; }
+		input[type="text"], input[type="email"], textarea {
+			width: 100%; font: inherit; color: var(--ink); background: transparent; border: 1px solid var(--rule); border-radius: 3px; padding: 0.65rem 0.75rem;
+		}
+		input:focus, textarea:focus { border-color: var(--amber); }
+		button[type="submit"] {
+			margin-top: 1.25rem; font-family: var(--display); font-weight: 600; font-size: 1rem;
+			color: var(--paper); background: var(--ink); border: 0; border-radius: 3px; padding: 0.7rem 1.2rem; cursor: pointer;
+		}
+		button[type="submit"]:hover { background: var(--amber); }
+
+		footer { margin-top: 5rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); font-size: 0.9rem; color: var(--muted); }
+
+		/* Responsive */
+		@media (max-width: 900px) {
+			.frame { grid-template-columns: minmax(0, 1fr); }
+			.rail { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--rule); padding: 1.75rem 1.25rem; gap: 1.25rem; }
+			.rail nav ul { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+			.rail nav a[aria-current="true"] { padding-left: 0; }
+			.rail nav a[aria-current="true"]::before { display: none; }
+			.rail .links { margin-top: 0; }
+			.rail .links ul { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+			.rail .resume { margin-bottom: 0.75rem; }
+			.theme { margin: 0.75rem 0 0; }
+			.photo { max-width: 7rem; margin: 0; }
+			.hero { min-height: 0; padding-top: 3.5rem; padding-bottom: 3rem; }
+			section { padding-top: 3.5rem; }
+			.figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+			.tl { grid-template-columns: 5.5rem minmax(0, 1fr); column-gap: 0.6rem; }
+			.tl .lab { font-size: 0.82rem; }
+			.tl .lab small { display: none; }
+			.tl .roles span { font-size: 0; padding: 0; }
+			.tl .years span:nth-child(even) { font-size: 0; }
+			.tl .bar[data-tip]::after { white-space: normal; min-width: 12rem; }
+			.build > li { grid-template-columns: minmax(0, 1fr); gap: 0.25rem; }
+			.build .when { margin-top: 0; margin-bottom: 0.5rem; }
+			.skills, .off { grid-template-columns: minmax(0, 1fr); }
+			.maps { grid-template-columns: minmax(0, 1fr); }
+			.places { columns: 1; }
+		}
+	</style>
+</head>
+<body>
+<div class="frame">
+
+	<aside class="rail">
+		<div class="name">
+			George "Chris" Carter
+			<small>Senior Software Engineer<br>Mass General Brigham<br>Greater Boston Area</small>
+		</div>
+
+		<figure class="photo"><img src="images/profile.jpeg" alt="Chris Carter" width="768" height="1024" loading="lazy"></figure>
+
+		<nav aria-label="Sections">
+			<ul>
+				<li><a href="#about">About</a></li>
+				<li><a href="#work">Work</a></li>
+				<li><a href="#skills">Skills</a></li>
+				<li><a href="#off-hours">Off hours</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</nav>
+
+		<div class="links">
+			<a class="resume" href="George Chris Carter - Resume.pdf">Resume (PDF)</a>
+			<ul>
+				<li><a href="https://www.linkedin.com/in/georgechriscarter/">LinkedIn</a></li>
+				<li><a href="https://github.com/gcarter24">GitHub</a></li>
+				<li><a href="mailto:gchriscarter@gmail.com">gchriscarter@gmail.com</a></li>
+			</ul>
+			<button class="theme" type="button" id="theme-toggle" aria-pressed="false">Dark mode</button>
+		</div>
+	</aside>
+
+	<main>
+
+		<section class="hero" id="top">
+			<div class="inner">
+				<h1>I built scenery for ten years. Now I build the software a hospital system runs its research on.</h1>
+				<p>Senior full-stack engineer on the Research Informatics Core at Mass General Brigham, working in Ruby on Rails since 2021.</p>
+			</div>
+		</section>
+
+		<div class="page">
+
+		<section id="about">
+			<h2>About</h2>
+			<p>I spent the first decade of my working life backstage in New York, running scenic and properties departments for The Public Theater, Theatre for a New Audience and The New School. Theater teaches you to build complicated things on a fixed deadline with people who are counting on you, and to care about every detail the audience will never consciously notice. In 2021 I retrained as a developer and joined the Research Informatics Core at Massachusetts General Hospital.</p>
+			<p>Five years on, I'm a senior engineer on that same team, now part of Mass General Brigham. We're a small group that runs close to 40 production Rails applications for research offices, HR and innovation programs across the hospital system, and ten of them are mine. I've taken over legacy systems and carried them from Rails 5 to Rails 8, rewritten two of them, moved our applications from on-premises hosting to AWS, and designed and built three new applications and the team's Okta single-sign-on engine from an empty repository.</p>
+		</section>
+
+		<section id="work">
+			<h2>Work</h2>
+			<p>Everything I build runs inside Mass General Brigham, so there are no public demos. Here is what the portfolio looks like.</p>
+
+			<dl class="figures">
+				<div><dt>10</dt><dd>production apps I own</dd></div>
+				<div><dt>400</dt><dd>protocols through OCR since December 2025</dd></div>
+				<div><dt>92,000</dt><dd>evaluations processed in Evals on my watch</dd></div>
+				<div><dt>5 to 8</dt><dd>Rails versions carried across the portfolio</dd></div>
+			</dl>
+
+			<div class="timeline">
+				<h3>Five years, ten applications</h3>
+				<p>When each one came into my hands, against the three roles I've held. Hover or tab onto a bar for details.</p>
+				<div class="tl" role="img" aria-label="Timeline of ten applications from December 2021 to October 2026, banded by role: junior developer to December 2023, lead developer to January 2026, senior developer since.">
+					<div class="lab" aria-hidden="true"></div>
+					<div class="track years" aria-hidden="true">
+						<span style="grid-column: 2">2022</span><span style="grid-column: 14">2023</span><span style="grid-column: 26">2024</span><span style="grid-column: 38">2025</span><span style="grid-column: 50">2026</span>
+					</div>
+					<div class="lab" aria-hidden="true">Role</div>
+					<div class="track roles" aria-hidden="true">
+						<span class="junior" style="grid-column: 1 / 26">Junior developer</span>
+						<span class="lead" style="grid-column: 26 / 50">Lead developer</span>
+						<span class="senior" style="grid-column: 50 / 60">Senior</span>
+					</div>
+					<div class="rule" aria-hidden="true"></div>
+
+					<div class="lab">Suggestion triage<small>maintainer</small></div>
+					<div class="track"><button class="bar" type="button" style="grid-column: 1 / 60" data-tip="Suggestion triage app, December 2021 to now, maintainer" aria-label="Suggestion triage app, December 2021 to now, maintainer"></button><span class="now"></span></div>
+					<div class="lab">iSuggest<small>rewrote, maintain</small></div>
+					<div class="track"><button class="bar" type="button" style="grid-column: 2 / 60" data-tip="iSuggest, January 2022 to now, rewrote and maintain" aria-label="iSuggest, January 2022 to now, rewrote and maintain"></button><span class="now"></span></div>
+					<div class="lab">Evals<small>primary developer</small></div>
+					<div class="track"><button class="bar" type="button" style="grid-column: 4 / 60" data-tip="Evals, March 2022 to now, primary developer" aria-label="Evals, March 2022 to now, primary developer"></button><span class="now"></span></div>
+					<div class="lab">EDC<small>maintainer</small></div>
+					<div class="track"><button class="bar" type="button" style="grid-column: 8 / 60" data-tip="Ether Dome Challenge, July 2022 to now, maintainer" aria-label="Ether Dome Challenge, July 2022 to now, maintainer"></button><span class="now"></span></div>
+					<div class="lab">NHPCSG<small>sole developer</small></div>
+					<div class="track"><button class="bar" type="button" style="grid-column: 18 / 60" data-tip="NHPCSG grant portal, May 2023 to now, built solo" aria-label="NHPCSG grant portal, May 2023 to now, built solo"></button><span class="now"></span></div>
+					<div class="lab">LabSec<small>lead developer</small></div>
+					<div class="track"><button class="bar" type="button" style="grid-column: 38 / 60" data-tip="LabSec, January 2025 to now, led the Ember to Rails rewrite" aria-label="LabSec, January 2025 to now, led the Ember to Rails rewrite"></button><span class="now"></span></div>
+					<div class="lab">OCR<small>sole developer</small></div>
+					<div class="track"><button class="bar" type="button" style="grid-column: 45 / 60" data-tip="OCR, August 2025 to now, designed and built solo; live December 2025" aria-label="OCR, August 2025 to now, designed and built solo; live December 2025"></button><span class="now"></span></div>
+					<div class="lab">CCI and TCRC<small>integration</small></div>
+					<div class="track"><button class="bar closed" type="button" style="grid-column: 50 / 56" data-tip="CCI and TCRC, January to June 2026, OCR intake API and fund linking" aria-label="CCI and TCRC, January to June 2026, OCR intake API and fund linking"></button><span class="now"></span></div>
+					<div class="lab">OAWA<small>sole developer</small></div>
+					<div class="track"><button class="bar" type="button" style="grid-column: 52 / 60" data-tip="OAWA, March 2026 to now, built from scratch" aria-label="OAWA, March 2026 to now, built from scratch"></button><span class="now"></span></div>
+					<div class="lab">okta_sso<small>sole author</small></div>
+					<div class="track"><button class="bar" type="button" style="grid-column: 57 / 60" data-tip="okta_sso engine, August 2026 to now, sole author" aria-label="okta_sso engine, August 2026 to now, sole author"></button><span class="now"></span></div>
+				</div>
+				<ul class="legend" aria-hidden="true">
+					<li><span style="background: var(--role-junior)"></span>Junior developer, Dec 2021 to Dec 2023</li>
+					<li><span style="background: var(--role-lead)"></span>Lead developer, Dec 2023 to Jan 2026</li>
+					<li><span style="background: var(--role-senior)"></span>Senior developer, Jan 2026 to now</li>
+					<li><span style="background: var(--ink)"></span>Time on each application; dashed line is today</li>
+				</ul>
+				<details class="tl-table">
+					<summary>View as a table</summary>
+					<table>
+						<thead><tr><th scope="col">Application</th><th scope="col">From</th><th scope="col">Role</th></tr></thead>
+						<tbody>
+							<tr><td>Suggestion triage app</td><td>Dec 2021</td><td>Maintainer</td></tr>
+							<tr><td>iSuggest</td><td>Jan 2022</td><td>Rewrote and maintain</td></tr>
+							<tr><td>Evals</td><td>Mar 2022</td><td>Primary developer</td></tr>
+							<tr><td>EDC</td><td>Jul 2022</td><td>Maintainer</td></tr>
+							<tr><td>NHPCSG</td><td>May 2023</td><td>Sole developer</td></tr>
+							<tr><td>LabSec</td><td>Jan 2025</td><td>Lead developer, rewrite</td></tr>
+							<tr><td>OCR</td><td>Aug 2025</td><td>Sole developer</td></tr>
+							<tr><td>CCI and TCRC</td><td>Jan to Jun 2026</td><td>Integration work</td></tr>
+							<tr><td>OAWA</td><td>Mar 2026</td><td>Sole developer</td></tr>
+							<tr><td>okta_sso</td><td>Aug 2026</td><td>Sole author</td></tr>
+						</tbody>
+					</table>
+				</details>
+			</div>
+
+			<ul class="build">
+				<li>
+					<div><h3>OCR</h3><div class="when">2025 to now, sole developer</div></div>
+					<div>
+						<p>Protocol submission and multi-stage review platform for the Office for Clinical Research. Designed and built from an empty repository; live since December 2025, with every approved protocol synced to two downstream research-center systems over an API I also wrote.</p>
+						<div class="stack"><span>Rails 8.1</span><span>Solid Queue</span><span>Stimulus</span><span>Docker</span><span>GitHub Actions</span><span>AWS</span></div>
+						<details>
+							<summary>What went into it</summary>
+							<ul>
+								<li>Versioned protocol templates: sections, fields and dropdown options are data, so the office can change a form without a deploy and existing protocols keep the version they were written on.</li>
+								<li>Reviews assigned automatically from the resources a study uses, then a comment round where the admin releases reviewer questions to the study team in batches with digest emails.</li>
+								<li>Routing by performing site, so MGH, BWH and affiliate protocols reach the right admin group, with institution-specific letters and standard attachments managed in the app.</li>
+								<li>Push integration to the CCI and TCRC systems: token-authenticated endpoints on their side, a retrying client and background sync job on mine.</li>
+								<li>Shipped with a Docker build and a GitHub Actions pipeline running RSpec, RuboCop, Brakeman and dependency audits on every push.</li>
+							</ul>
+						</details>
+					</div>
+				</li>
+				<li>
+					<div><h3>OAWA</h3><div class="when">2026 to now, sole developer</div></div>
+					<div>
+						<p>Facility inspection, findings and corrective-action tracking for the Office of Animal Welfare Assurance and its IACUC. Built from scratch, including escalation rules, templated email and a nightly facility-data import.</p>
+						<div class="stack"><span>Rails 8.1</span><span>Solid Queue</span><span>Hotwire</span><span>RSpec</span></div>
+						<details>
+							<summary>What went into it</summary>
+							<ul>
+								<li>Inspection cycles over buildings, areas and rooms, with the master list of facilities imported from the Insight space system and the rest derived from it.</li>
+								<li>Findings with deficiency categories and quick picks, corrective-action templates, response tracking and escalation rules that fire when a deadline passes.</li>
+								<li>Email templates with distribution lists and recipient roles, previewed before send, so the office writes its own notices.</li>
+								<li>IACUC member and alternate management tied to login accounts, and a 140-file RSpec suite from day one.</li>
+							</ul>
+						</details>
+					</div>
+				</li>
+				<li>
+					<div><h3>LabSec</h3><div class="when">2025 to now, lead developer</div></div>
+					<div>
+						<p>Laboratory safety inspection and compliance system. I led its rewrite from an Ember front end into a single Rails application: surveys and events, corrective actions and reminders, and a space-data sync with the facilities system.</p>
+						<div class="stack"><span>Rails 7.2 to 8.1</span><span>Stimulus</span><span>esbuild</span><span>Pundit</span></div>
+						<details>
+							<summary>What went into it</summary>
+							<ul>
+								<li>Moved the back end from Rails 6.1 and Ruby 2.7 to Rails 7.2 and Ruby 3.3 first, then rebuilt the Ember screens as server-rendered Rails views with Stimulus.</li>
+								<li>Inspection surveys and events with present-observer tracking, violation counts and finalization rules.</li>
+								<li>Action items and follow-ups with reminder and past-due notifications, scoped by PI site.</li>
+								<li>A nightly Insight import with retries and staleness marking, so the lab roster never silently drifts from the facilities record.</li>
+							</ul>
+						</details>
+					</div>
+				</li>
+				<li>
+					<div><h3>Evals</h3><div class="when">2022 to now, primary developer</div></div>
+					<div>
+						<p>The enterprise performance-evaluation system, synced with HR identity data. Employee search, a rewritten bulk importer, optimized notification jobs and the PeopleSoft to Workday transition.</p>
+						<div class="stack"><span>Rails 8.1</span><span>Delayed Job</span><span>MySQL</span></div>
+						<details>
+							<summary>What went into it</summary>
+							<ul>
+								<li>Roughly 92,000 evaluations processed during my time on it, across the workflow rules, second-evaluator logic and reporting-structure checks I added.</li>
+								<li>Rewrote the bulk employee-record importer and the identity sync so the overnight load finishes in a fraction of the time.</li>
+								<li>Carried it from Rails 5.1 through 6, 7 and 8, clearing the deprecations at each step.</li>
+								<li>Reworked notifications, HR links and countdown reminder emails when the organization moved from PeopleSoft to Workday.</li>
+							</ul>
+						</details>
+					</div>
+				</li>
+				<li>
+					<div><h3>okta_sso</h3><div class="when">2026, sole author</div></div>
+					<div>
+						<p>The team's Okta single-sign-on Rails engine: OIDC authorization code with PKCE, token verification against JWKS, outage fallback and a per-app cutover check. Now used by every application we run.</p>
+						<div class="stack"><span>Rails engine</span><span>OIDC</span><span>JWT</span></div>
+						<details>
+							<summary>What went into it</summary>
+							<ul>
+								<li>Authorization-code flow with PKCE and ID tokens verified against Okta's published keys, with no email identifiers ever sent to the provider.</li>
+								<li>A break-glass local login that stays available if Okta is down, and RP-initiated logout so signing out of an app signs out of Okta too.</li>
+								<li>A preflight report per application that lists accounts that would fail the cutover, so each app could be switched over cleanly.</li>
+								<li>Folded into the shared authentication engine beside the existing LDAP path, with setup and cutover documentation for the Okta admin team.</li>
+							</ul>
+						</details>
+					</div>
+				</li>
+				<li>
+					<div><h3>NHPCSG</h3><div class="when">2023 to now, sole developer</div></div>
+					<div>
+						<p>Grant application, review and funding-round portal for a nonhuman-primate research consortium. My first application built solo from inception.</p>
+						<div class="stack"><span>Rails 8.1</span><span>caxlsx</span><span>wicked_pdf</span></div>
+						<details>
+							<summary>What went into it</summary>
+							<ul>
+								<li>Funding rounds with application forms, review templates, scoring and steering-committee access, with the round lifecycle automated.</li>
+								<li>External accounts for reviewers outside the hospital directory, alongside LDAP for staff.</li>
+								<li>Excel and PDF exports for the committee, and a maintainability pass that replaced CodeClimate with qlty.</li>
+							</ul>
+						</details>
+					</div>
+				</li>
+				<li>
+					<div><h3>iSuggest and EDC</h3><div class="when">2022 to now, maintainer</div></div>
+					<div>
+						<p>An enterprise suggestion platform I rewrote, with a Microsoft Graph inbox integration, and the Ether Dome Challenge innovation-contest site, which I keep current through each framework upgrade.</p>
+						<div class="stack"><span>Rails 8.1</span><span>Microsoft Graph</span><span>Bootstrap</span></div>
+						<details>
+							<summary>What went into it</summary>
+							<ul>
+								<li>iSuggest: notification preferences, reminder schedules, role consolidation, a status workflow, a visual refresh and a Sass migration, then Rails 8.1.</li>
+								<li>EDC: made the contest site configurable per contest for new programs, replaced an end-of-life editor with TinyMCE, and carried it from Rails 6 to 8.</li>
+								<li>Both: added Brakeman and RuboCop to the pipeline and cleared the findings.</li>
+							</ul>
+						</details>
+					</div>
+				</li>
+			</ul>
+		</section>
+
+		<section id="skills">
+			<h2>Skills</h2>
+			<p>The filled tags are the tools I work in every day. The rest I have shipped with in production and would pick up again without a ramp.</p>
+			<dl class="skills">
+				<div class="core"><dt>Every day</dt><dd><ul class="tags"><li>Ruby 4</li><li>Rails 8.1</li><li>MySQL and ActiveRecord</li><li>RSpec</li><li>Stimulus and Hotwire</li><li>HAML</li><li>Git and GitHub</li><li>AWS</li><li>Docker</li><li>Solid Queue</li></ul></dd></div>
+				<div><dt>Front end</dt><dd><ul class="tags"><li>JavaScript (ES6)</li><li>jQuery</li><li>Sass</li><li>Bootstrap 4 and 5</li><li>esbuild</li><li>importmap</li><li>TinyMCE</li><li>Chart.js</li><li>wicked_pdf</li><li>caxlsx</li></ul></dd></div>
+				<div><dt>Data and background jobs</dt><dd><ul class="tags"><li>Multi-database Rails apps</li><li>Redis</li><li>Delayed Job</li><li>Scheduled imports and reminders</li><li>CSV and Excel ingestion (roo)</li></ul></dd></div>
+				<div><dt>Testing and code quality</dt><dd><ul class="tags"><li>FactoryBot</li><li>Capybara and Selenium</li><li>SimpleCov</li><li>Guard</li><li>RuboCop</li><li>Brakeman</li><li>Cycode</li><li>CodeClimate and qlty</li><li>HoneyBadger</li></ul></dd></div>
+				<div><dt>Delivery and infrastructure</dt><dd><ul class="tags"><li>GitHub Actions CI</li><li>Capistrano</li><li>Puma</li><li>Linux VMs</li><li>On-prem to AWS migration</li><li>Shared Rails engines</li></ul></dd></div>
+				<div><dt>Auth and integrations</dt><dd><ul class="tags"><li>LDAP</li><li>Okta OIDC (PKCE, JWKS)</li><li>Microsoft Graph</li><li>IdM and HR syncs (PeopleSoft, Workday)</li><li>REST APIs with token auth</li><li>Faraday</li><li>ActionMailer</li></ul></dd></div>
+				<div><dt>Framework history</dt><dd><ul class="tags"><li>Rails 5.2 to 8.1 upgrades</li><li>Ruby 2.6 to 4.0 upgrades</li><li>Ember to Rails rewrite</li><li>Sprockets to esbuild</li><li>Sass-C to Dart Sass</li></ul></dd></div>
+			</dl>
+		</section>
+
+		<section id="off-hours">
+			<h2>Off hours</h2>
+			<div class="off">
+				<div>
+					<!-- <figure><img src="images/hiking.jpg" alt=""></figure> -->
+					<h3>Hiking</h3>
+					<p>I live in New Hampshire, so the mountains are never far. Nothing resets my head after a week of pull requests like a long climb and a summit that makes the effort feel earned.</p>
+				</div>
+				<div>
+					<!-- <figure><img src="images/genealogy.jpg" alt=""></figure> -->
+					<h3>Genealogy</h3>
+					<p>I come from a long line of storytellers, and I've turned that into a family tree of more than 21,000 ancestors. It scratches the same itch as debugging: follow the records, question the sources, and never trust a branch you haven't verified yourself.</p>
+				</div>
+				<div>
+					<!-- <figure><img src="images/travel.jpg" alt=""></figure> -->
+					<h3>Travel</h3>
+					<p>I've been a lot of places, and Ireland is the one I keep going back to. I've spent more time there than anywhere else outside the States, and I'm happiest somewhere with old stone and a long history to read.</p>
+				</div>
+			</div>
+		
+			<div class="where">
+				<h3>Where I've been</h3>
+				<p>Some of the places I've been. Where I'd like to go is a list that keeps on growing.</p>
+				<div class="maps">
+					<svg class="map na" viewBox="0 0 520 360" role="img" aria-label="North America: places visited, one dot each">
+						<path class="land" d="M488.7,315.4L487.3,318.1L481.4,319.7L476.8,321.3L475.4,317.8L476.2,316.3L482.6,314.6L486.8,314.2ZM399.3,339.2L397.1,341L392.4,340.4L387.3,338L387.9,336L391.2,334.8L393.1,334.8L398.6,334.7L403.2,335.9L405,338ZM430.5,315.7L437.6,315.5L438.2,313.8L444.3,312.5L449.5,313.5L451.5,312.8L453.6,315.4L457.8,314.1L458.2,316.7L461.8,316.1L466.4,318.1L464.4,322.3L460.2,321.4L456.6,322.7L453.9,322.9L452.9,324.8L450,326L448.2,324.3L445.9,326.1L444,332.6L441.7,331.7L440.7,329.4L435.1,329.2L431.5,330.6L426.5,331L423.1,333.3L418.2,331.5L418.4,328.7L426,328.4L432.1,327.8L434.6,325.3L430.2,322.4L429.6,319.2L424.3,319L425.6,316.3ZM371,301.5L374.5,304.1L381.5,302L384.6,303.5L392,307.6L397.5,310.6L400,310L405,310.8L404.8,313.3L410.7,312.6L417.2,314.8L416.7,317L411.7,319L406.4,320.5L400.9,320.8L389.7,323.5L394.2,318L390.7,316.3L385.5,316.6L382.4,314.6L379.8,310.1L375.5,311.1L367.9,309.9L365.3,308.4L355,308.5L352.1,307.1L354.8,304.7L347.1,305.2L342.1,310.1L338.8,310.6L337.9,312.7L334.1,314L330.7,313.5L334.6,310.6L336,307.4L339.3,305.2L343.1,303.1L348.8,301.7L350.6,300.5L357.3,300.3L363.4,299.6ZM386.1,290.7L384.3,291.4L381.6,286.9L378.4,285L379.2,279.5L381.5,279.4L385.2,285.9ZM380.1,267.7L372.3,270.3L371.3,267.3L374.6,266.1L379.6,265.6ZM386.1,266.6L385.9,272.7L384.3,271.9L383.7,267.5L379.9,264.8L379.7,263.9ZM433.4,85.2L437.8,85.1L442.8,83.2L441.1,87.3L439.3,88.5L431.1,87.3L428.9,85.1L430.2,81.9ZM436.8,61.4L434.3,62.4L426.6,62L420.5,59.7L422.1,58.4L429.7,58.3L436.2,59.9ZM96,70.8L92.9,71.1L89.1,67.8L85.3,64.6L84.6,61.2L80.9,56.8L80.7,54.1L75.9,50.8L75.4,45.7L76.5,44L81.3,47.6L84.1,50L88.7,52.5L89.5,55.8L90.9,60.5L95.2,65.6ZM461.6,37.9L461,46.2L463.2,42.2L467.4,42.6L466.7,46.1L472.1,46.4L473.7,43.5L479.8,43.7L480.7,50.2L483.7,47.3L486.2,51.1L489.9,55.3L490.7,63.1L488.4,64.4L484.3,64.4L482.7,57.5L480.8,57.1L477.5,66.5L474.2,67.5L476.5,62.3L470.6,62.4L465,65.1L459.8,66.9L454.6,68.7L452.9,66.7L455.2,62.6L452.1,61.3L454.8,54.9L455.1,47.5L455.3,40.1L456.7,34.3L459.9,29.8L462.4,29.2L462.3,31.8ZM65.1,9.2L70,10.4L64.8,19.1L66.6,27.3L64.6,26.5L63.1,21.6L62.8,17.1L61.4,13.6L61.9,9.7L63.3,7.2ZM256.9,0L256.8,3.3L263.7,4.8L266,13.3L268.3,20.1L275.1,18.1L279.7,19.9L284.4,21.7L289.5,24.8L293.3,28.8L299.7,30.8L305.3,34.1L309.5,33.9L313.7,33.8L319.3,34L319.3,41.7L321.9,50.3L326.9,59.5L335.9,66.6L339.6,63.2L341.2,54L338.8,47.4L336.4,40.7L332.1,36.6L335.9,34L339.6,31.3L344.2,24.2L345.8,17.7L344.4,11.8L339.9,4.8L334.3,0L417,0L417,0L416.9,1.5L424.9,4.1L430.8,7.4L435,7.1L439.2,6.8L443.2,8.2L447.8,14.5L452,14.1L455.2,16.4L459.2,25.3L456.8,29.8L454.3,34L450.7,37L447,40L443,49L438.8,51.2L434.6,53.3L428.7,54.3L422.9,55.2L418.9,56.3L415,57.5L409.7,59.6L406.9,66.8L401,72.3L395.8,85.2L391.2,94.3L395.7,91.8L398.8,85.4L401.9,78.8L406.7,73.9L411.4,68.9L419.2,65.8L425.1,68.3L421.7,75.3L426,83.6L429.7,89.1L438.2,90.9L442.6,88.8L447,86.7L449.5,75.9L451.8,81.5L456.4,83.2L451.4,90.8L445.9,95.2L440.4,99.6L435.8,104.6L431,112.3L426.5,113L424.3,106.2L428.3,101.5L432.3,96.7L427.8,98.2L423.2,99.6L417.2,102.4L418.9,104.8L413.8,110.3L408.6,114.7L403,118.6L400.9,124.7L400.4,126.3L401.4,130.6L404.4,134.4L406.9,134L405.6,131.2L407.8,132.5L407.9,135L404.1,137.3L401.2,137.8L397,140.2L394.5,141.2L391,142.4L386.4,145.8L395.1,142.4L397.2,143.5L389.1,147.8L385.2,148.6L385.2,147.6L383.8,150.2L385.7,150.2L385.5,156.3L382.1,163.5L381.3,161.5L379.8,161.3L377.4,159.7L379.5,163.8L381.3,165L382,168L380.6,171.6L378.2,178.7L377.5,178.5L378.5,172.6L374.7,170.1L372.7,163.5L372.1,167.2L374.4,172.1L370.1,171.6L374.8,173.4L376.5,181.1L378.4,181.4L379.6,184L382,192L378.9,198.8L372.4,202.4L368.8,207.9L365.5,209L362.5,212.5L361.9,215.4L355.1,221.7L351.7,226.2L349.1,231.5L348.7,237.4L350.7,243L354,249.7L358,255.1L358.5,258.6L363.3,267.7L363.8,273.3L363.9,276.6L362.8,281.9L360.7,283.2L356.9,282.7L355.2,279.2L352.1,277.7L347.3,271L343.2,265.1L341.7,262L342.6,256.3L340.1,252L333.7,245.7L330.8,244.8L323.9,249.2L322.6,248.9L318.8,245.3L314.2,243.6L306.2,245.2L299.8,244.7L294.4,245.6L291.4,246.9L292.9,249.1L293,252.5L294.6,254.1L293.2,255.2L290.5,254.1L287.9,255.8L282.6,255.7L277.1,251.5L270.8,252.6L265.6,250.8L261.1,251.4L255,253.3L248.4,259.4L241,262.8L236.9,266.7L235.1,270.3L234.8,276.1L235.1,280.1L236.4,283L236.4,283L236.4,283L233.2,290.2L231.7,296.2L230.7,307.4L229.8,311.5L231,316.2L233.3,320.4L234.6,327L239.8,333.5L241.5,338.4L244.6,342.7L253.2,345.1L256.5,348.7L263.7,346.3L269.9,345.4L275.9,343.7L281,342.2L286,338.5L287.8,333.5L288.2,326.3L289.5,323.8L294.7,321.3L303,319L310,318.8L314.7,317.8L316.7,319.5L316.7,323.6L312.8,328.9L311.3,334.2L312.8,335.6L311.8,339.4L310.2,346.2L308,344.1L306.3,344.3L306.5,345.6L308,345.5L308,347.9L306.9,351.7L307.7,353L307,356.1L307.6,356.9L307.1,360L213.7,360L213.7,360L212.8,359.8L203.7,355.2L197.1,350.6L195.2,348.1L190.7,347.2L182.7,343.8L179.7,339.5L171.5,333.8L168.1,328L166.7,323.7L169.4,323.2L168.9,320.6L171,318.7L171.3,315.8L169.1,311.7L168.8,308.3L166.7,303.7L161,294.6L154.2,287L151.3,281.4L145.4,277L144.4,274.8L146.3,269.9L142.8,267.4L139.1,262.7L138.3,256.6L134.5,255.3L131,250.3L128.4,245.7L128.6,243.1L125.9,236.2L124.6,229.5L125.3,226.4L121,222.2L118.6,222.1L115.1,219.1L113.3,222.1L113.6,226.2L113,232.5L114.8,236.3L118.9,243L119.7,245.1L120.6,245.9L121.1,248.9L122.3,249L122.8,254.6L124.6,257L125.6,260.2L129.4,265.2L130.5,273.3L132.1,277.3L133.6,281.5L133.2,285.9L136.8,286.8L139.3,291.1L141.4,295.2L141,296.7L137.3,299.2L136,299L134.8,293.6L130.6,288L125.9,283.1L122.4,280.3L123.7,274.3L123.4,269.7L120.4,266.5L116.1,261.8L114.9,262.7L113.5,260.2L109.4,257.3L106.2,251.7L106.8,251.2L109.7,252.3L113,249.8L114,246.2L109.7,239.2L106,236.1L104.6,230.5L103.2,224.6L101.5,217.4L100.4,209.6L100.2,205.2L97,199.5L94.1,197.8L93.9,195.3L90.3,194L88.5,191.2L82.6,188.8L81.3,187.1L81.7,182.5L77.6,172.7L75.5,160.2L76.3,158.4L74.3,155L71.5,146.9L72.6,140.2L70.7,134.9L74.1,128.7L76,121.8L76,115.2L80.6,108.4L83.6,101.3L86.5,94.3L88.8,83.1L89.2,75.7L88.8,71.4L90,70.1L97,75.2L97.6,83.8L99.6,82L100.7,75.1L100.8,67.8L100.1,67.6L96.1,62L92.3,56.4L89.7,51.7L85.5,48.4L81.5,45.1L81.1,36.9L83.6,32.2L78.5,26.4L80,19.5L76.4,11.3L77.9,7L76.5,2.9L74.4,0L256.9,0Z"/>
+						<path class="border" d="M77.9,7L82.1,4L83.5,0M417.2,102.4L412.2,98.8L409.3,87.7L406.2,86L402.8,88.3L400.4,86.6L397.7,93.9L397.5,100.7L396.4,104.9L394.2,106.7L392.5,107.6L392.3,109.7L381.7,112.1L372.8,113.9L370.5,115.9L365.4,123L364.7,123.8L363.4,127.3L357.9,128.2L352.1,129.2L349.6,130.9L350.8,132.4L351.7,134.8L351.7,135.7L344.4,140.9L338.2,143L331.6,148.3L330.1,148.5L327.9,147.4L327,146.3L327.1,145.5L328.1,142.4L330.5,137.5L331.6,132.4L329.6,125.3L327.5,117.9L320.9,114.7L321.5,113.1L320.5,112.2L318.9,112.3L317.6,111.1L317.2,109.2L316.1,110.1L314.5,110L314.8,109.2L313.4,108.5L312.6,106.3L307.9,104L303.1,101.6L297.3,98.7L291.8,95.9L286.8,98.6L285,98.7L277.9,96.8L273.4,98L267.8,95.5L262.1,94.2L258.1,93.7L256.4,92.2L255.5,87.5L253.6,87.6L253.5,90.8L241.9,90.6L222.8,89.6L203.8,88.1L187.2,86.1L170.6,83.7L154.3,80.8L137.6,77.4L132.2,76.1L116.1,72.1L100.8,67.8M236.4,283L233.5,283.1L228.2,281.1L222.5,278.2L220.6,274.2L219.3,268.3L215.2,263.3L213,258.3L209.8,252.4L204.9,248.7L199.1,248.4L194,254.5L188.2,251.5L184.8,248.6L183.5,243.9L181.6,239.4L177.8,235.3L174.5,232.2L172.3,229L160.3,227.4L159.8,230.8L154.2,230L140.3,227.8L125.6,219.2L116.1,213.1L117,211.7L108.2,210.7L100.4,209.6M437.6,315.5L439.3,319.8L439.4,323.2L437.8,325L440.4,327.1L440.7,329.4M306.3,344.3L304.8,344.5L302.2,349.9L300.6,348.9L299.7,349.4L299.8,350.6L292.2,350.9L284.6,351.1L284.7,356L281,356.1L284.1,358.9L285.9,360M299.8,350.6L300.1,357.5L300,360"/>
+						<circle class="dot" cx="315.1" cy="325.6" r="4" tabindex="0"><title>Riviera Maya, Mexico</title></circle>
+						<circle class="dot" cx="379.5" cy="108.3" r="4" tabindex="0"><title>Montreal, Canada</title></circle>
+						<circle class="dot" cx="390.6" cy="94.6" r="4" tabindex="0"><title>Quebec City, Canada</title></circle>
+						<circle class="dot" cx="100.3" cy="80.0" r="4" tabindex="0"><title>Seattle, WA</title></circle>
+						<circle class="dot" cx="93.4" cy="96.4" r="4" tabindex="0"><title>Portland, OR</title></circle>
+						<circle class="dot" cx="95.8" cy="195.6" r="4" tabindex="0"><title>Los Angeles, CA</title></circle>
+						<circle class="dot" cx="106.7" cy="200.0" r="4" tabindex="0"><title>Palm Springs, CA</title></circle>
+						<circle class="dot" cx="108.8" cy="198.0" r="4" tabindex="0"><title>Joshua Tree, CA</title></circle>
+						<circle class="dot" cx="136.2" cy="209.3" r="4" tabindex="0"><title>Phoenix, AZ</title></circle>
+						<circle class="dot" cx="140.4" cy="198.1" r="4" tabindex="0"><title>Sedona, AZ</title></circle>
+						<circle class="dot" cx="256.3" cy="173.8" r="4" tabindex="0"><title>Kansas City, MO</title></circle>
+						<circle class="dot" cx="351.8" cy="255.3" r="4" tabindex="0"><title>Orlando, FL</title></circle>
+						<circle class="dot" cx="378.9" cy="155.6" r="4" tabindex="0"><title>Philadelphia, PA</title></circle>
+						<circle class="dot" cx="336.4" cy="149.2" r="4" tabindex="0"><title>Cleveland, OH</title></circle>
+						<circle class="dot" cx="320.9" cy="170.9" r="4" tabindex="0"><title>Cincinnati, OH</title></circle>
+						<circle class="dot" cx="352.0" cy="135.4" r="4" tabindex="0"><title>Buffalo, NY</title></circle>
+						<circle class="dot" cx="350.7" cy="133.9" r="4" tabindex="0"><title>Niagara Falls, NY</title></circle>
+						<circle class="dot" cx="368.2" cy="131.4" r="4" tabindex="0"><title>Syracuse, NY</title></circle>
+						<circle class="dot" cx="384.9" cy="148.0" r="4" tabindex="0"><title>New York, NY (lived in Manhattan, Flushing and Astoria)</title></circle>
+						<circle class="dot" cx="398.8" cy="135.6" r="4" tabindex="0"><title>Providence, RI</title></circle>
+						<circle class="dot" cx="383.4" cy="116.2" r="4" tabindex="0"><title>Burlington, VT</title></circle>
+						<circle class="dot" cx="402.2" cy="119.0" r="4" tabindex="0"><title>Portland, ME</title></circle>
+						<circle class="dot" cx="412.7" cy="110.1" r="4" tabindex="0"><title>Bar Harbor, ME</title></circle>
+						<circle class="dot" cx="399.9" cy="130.7" r="4" tabindex="0"><title>Boston, MA</title></circle>
+					</svg>
+					<svg class="map eu" viewBox="0 0 520 360" role="img" aria-label="Europe: places visited, one dot each">
+						<path class="land" d="M520,331.3L515.5,332.8L514.9,330.2L498.8,331L499.6,323.8L499.6,323.8L507.7,327.4L517.3,324L520,323.7L520,331.3ZM390.4,303.3L387.5,316.2L390,320.8L388.4,329.2L378,324.5L371.4,323.5L353.1,317.3L354.1,309L368.7,309L381.2,305.8ZM309.8,263.5L317.6,274.3L317.1,295.2L311.5,294.5L306.8,300L302,296.1L300.7,277.1L297.6,268.2L304.1,268.7ZM313.1,248.5L309.9,260.8L304.4,257.9L301.2,247.4L303.3,241.5L310.4,235.1ZM146.4,82.7L137.2,86L127.9,89.2L114.7,84.4L125.3,69.6L123.4,52.9L138,42.8L146,36.6L153.6,37.1L162,48.2L155.6,58.3L155.6,69.8ZM329.2,34.6L324.9,47.9L314.7,39.8L312.9,33.2L325.6,26.9ZM183.5,0L181.9,2.4L190.9,1.1L200.2,2.1L196.9,14.9L187.6,28.4L196.7,30.3L203.8,51.5L209.9,54.5L214.5,72.9L216.8,79.3L228.2,82.9L226.6,92.9L221.4,97.3L225,105.6L215.7,113.4L202.4,112.4L193.7,113.9L185.1,115.4L180.7,111.8L173.4,118.5L164.3,115.6L156.6,120.7L151.6,116.9L168.2,102.3L177.4,99.9L169.8,97.8L162.4,95.5L160.4,89L171.1,85.3L166.9,76.2L169.9,66.1L183.7,69.1L186,60.1L180.7,49.5L169.9,45.4L168.3,40.9L172.5,34.2L170,29.5L164.3,36.3L165.8,21L162.5,12.3L166.6,0L183.5,0ZM106.9,360L113.9,350.5L119.2,341.4L128.7,342.7L135.6,350.4L148,350.7L161,355.6L166.7,356.3L179.8,348.6L193.9,346.9L202.4,340.8L215,336.6L225.8,335.6L236.6,334.5L247.2,334L257.7,333.5L264.1,335.8L276,329.4L289.5,329L294.8,332.5L303.4,331.3L316.8,324.2L325.7,325.5L325.9,333.6L336.2,327L337.3,330L331.6,338.2L332,345.5L336.7,349.2L336.2,360L106.9,360ZM520,261.3L515,258.5L520,248.2L520,261.3ZM520,194L519.8,194.5L518.9,206.4L520,207.8L520,239L520,239L514.3,247.4L508.8,241.3L508,238.1L500.9,239.6L494.5,239.7L481.5,247.1L491.7,253.7L486.3,257.7L479.8,259.2L471.8,252.7L470.3,256.6L475,265.2L482.6,271.1L478.9,275.5L487.2,281L494.3,284.1L496.5,292.7L484.3,291.3L489.7,298.3L482.3,301.7L490.1,314.3L481.9,316.4L470.2,311.8L463,300.4L458.7,290.5L452.6,284.3L444.7,276.7L443,272.4L440.8,271.8L439.9,268.4L432.4,264.4L430,257.2L429.1,246.5L429.8,241.3L427.4,239.3L424.7,238.5L420.6,234L415.2,231.8L403.5,227.8L396.1,223.2L385.1,220.1L374.1,209.9L376.2,208.4L370.3,202.5L369.5,197.3L362.1,195.7L359.5,202.8L355.7,197.9L355.3,192.5L355.7,192.2L358,190.5L349,189.2L340.7,195.6L342,203.3L341,207.9L345.4,215.5L356.8,222.3L364,234.6L378.3,245.6L387.4,244.3L390.7,247.3L387.8,250.9L399.1,255L408.5,258.4L419.9,264.9L421.6,267.6L420.3,273.5L412.5,267.3L401.8,266.4L398.3,277.2L407.8,281.7L407.6,290.1L402.7,291.8L398.1,306.1L393.1,308L392.5,303.2L393.8,294.5L396,290.8L390.1,282.4L385.3,275L380.1,273.6L375.8,267.3L367.8,265.4L362,259.7L353.2,259.5L343.3,253.3L331.8,244L323.3,235.6L318.8,220.3L313.1,218.8L303.6,214.2L298.6,216.5L292.3,224.1L287.7,225.4L277.5,234.5L266.2,232.5L254.9,230.4L238.2,235.2L236.7,244.6L237.1,253.8L225.6,263.9L210.3,266.6L208.9,271.8L201,280.1L195.6,292.6L199.8,302L192.2,308.5L188.8,318.6L179.1,321L169.1,332.4L153,331.1L141,329.5L132.4,334.1L126.7,339.4L120.7,337.3L116.7,331.3L114.4,321.7L103.1,317.5L97.4,320.8L91.2,317.5L84.4,318.1L88.4,306.2L89,296.5L83.8,294L81.9,287.6L84.7,277.6L90.5,272.8L92.5,266.7L96.6,257.8L97.5,251.2L96.1,245.2L96.5,239.9L99,229L95.6,221.4L113.4,213L126.7,218L141.9,220L153.6,224.1L163.1,224.4L172.2,225.5L181.4,226.6L188,217.7L190.3,202.2L192.6,186.7L182.8,169.4L175.8,160.7L168,156.9L160.4,153L160.7,141.5L174.4,139.6L182.9,142.4L191.4,145.2L189.6,127.2L198.7,134.7L211,129.4L223,123.9L226.6,111.1L235.4,108.3L243.4,105.3L248.5,101.1L257.2,77.9L270.1,71.2L278,71.5L279.7,68.1L287.5,67L289.4,70.4L295.4,62.4L293,56.5L292.2,47.5L288.2,38.8L287.3,22.5L288.6,18.2L290.9,13.2L298.5,11.9L301.3,7.3L307.9,2.3L308.2,10.6L305.9,15.9L307.3,20.4L312.2,22.4L310.5,28.6L307.7,27.1L302,38.9L304.9,46.5L305.5,52.6L315,55.7L315.3,61.3L324.6,57.6L329.3,52.8L340.4,58L345.4,62.5L351.1,57.1L357.9,52.6L364.5,48L375.2,40.9L384.6,42.1L386,45.8L394.8,44.4L395.6,37.1L406.9,29.7L402.4,16.9L400.3,5L401.3,0L520,0ZM359.4,0L359.5,7.9L356.7,23.5L345.8,23.3L342.2,36.5L331.9,38.3L327.5,23.6L318.6,6.1L316.3,0L359.4,0Z"/>
+						<path class="border" d="M406.9,29.7L416.8,30.4L421.3,32L421.3,36.4L423,40.2L406.3,44L394.8,44.4M520,45.7L519.9,45.8L518.8,49.9L515.2,50.6L509.6,41.8L505.8,37.5L507,35.5L514.4,33.5L516.8,29L512.8,26L505.9,25.4L505.5,22.5L500.9,21L492.1,13L492.6,8.3L489.4,1.5L479.9,0.6L475.9,3.9L473.6,0.5L469.2,0M235.4,108.3L236.7,113.8L241.3,114.2L245.8,120.6L252.8,128.2L258,127L266.9,134.1L269.2,135.5L272.1,135.1L277,139.1L291.9,141.6L287.1,152.5L286.1,163.7L283.3,166.5L278.4,165.2L278.8,169.2L271.2,178.1L271.1,185.2L276.2,182.7L280.1,189.5L279.8,193.9L283.1,199.7L279.4,204.6L282.6,216.7L288.7,218.5L287.7,225.4M236.7,244.6L223.1,246.3L210.4,238.6L206.1,241.7L185.4,233.1L181.4,226.6M302.7,360L303.8,354.6L301.1,339.5L303.4,331.3M168.1,360L166.7,356.3M515.2,50.6L507.5,54.2L505.8,58.4L507.7,66.1L503.5,65.9L495.3,69.3L491.7,66.5L489,70.3L484.8,69.1L477.3,71L465.8,70.3L455.9,71.6L448.7,73.8L444.5,79.3L440.1,81L438.3,74.2L433.7,67.7L438.6,63.2L437.2,57.1L433.3,51.8L431.3,45.1L440,43.1L448.4,34.8L448.1,25.6L454,18.7L451.3,12L455.9,8L462.8,0M520,159.9L517.6,162.2L512.1,160.8L514.2,158.4L514.5,152.7L515.9,147L514.3,144.6L516.1,142.7L517.8,144.5L520,143.9M520,135.4L519.2,135L515.7,129.2L511.3,127.9L510.4,122.6L504.7,119.9L500.3,120.6L491.6,118.1L485.3,121.5L483.6,124.4L479.3,125.5L477.7,129.8L470.6,133.2L467.7,136.4L462,133.9L455.5,135.4L448.7,135.2L445,139.5L443.4,135.5L436.8,132.6L437.5,126L439.4,121.4L441.8,121.8L437.6,115.5L443.7,100.7L448.1,97.7L448.1,93.2L440.1,81M439.4,121.4L428.6,117.5L421.8,121.2L416.7,120.5L411.4,125L405.3,120.4L401.6,123.3L400.8,122.5L394.9,115.6L387.3,115.9L385.6,111.2L378.5,110.5L377.7,114.7L371.8,112.3L371.8,107.9L364.3,107.5L358.9,103.1L353.7,93.6L353.8,88.1L350.4,80L346.3,74.8L348.4,70.3L345.4,62.5M423,40.2L428,40.8L431.3,45.1M445,139.5L439.4,144.1L436.8,155.6L432.5,167.3L424.6,171.9L417.8,172.5L410.3,178L406.6,181L397.3,179.5L388.2,174.1L384.5,172.7L381.7,167.7L379.9,167.8M385.2,146.9L385.3,153.3L379.5,154.2L381.9,157.3L379.9,167.8L378.2,170.7L368.9,172.3L363.9,176.5L355,176.4L339.2,173.9L336.3,168.7L326,172.2L325,175.3L318.3,173.6L312.8,173.5L307.9,170.9L309.2,167L308.7,164.2L311.8,163.2L317.5,167.2L318.7,163L328.1,162.9L335.4,159.5L340.5,159.5L344.1,162.4L344.8,159.6L342.3,149.6L345.8,147.2L348.7,139.6L356.9,143.8L361.9,136.7L365.4,135.1L374,138.8L378.7,137.3L383.9,139.5L383.3,141.6L385.2,146.9L391,150L395.2,151.1L403.6,147.7L403.9,144.5L407.9,143.3L412.5,140L413.8,140.8L418.2,137.9L419.9,133.8L423.1,132.2L435,134.7L436.8,132.6M512.1,160.8L508.1,154.5L507.4,147.8L505.1,141.3L496.5,134L491.4,128.6L487,125L483.6,124.4M520,186.7L516.7,186.9L507.2,183.7L495.4,190.7L491,196L474.6,199.3L465.6,199L461.6,201.1L457,195.5L454.4,193.3L456.4,190.1L453.2,188.8L450.6,193L443.3,189.9L441.1,183.7L433.7,181.5L431.6,176.8L424.6,171.9M402.4,16.9L411.3,10L426.1,7.7L434.1,4L436.2,7L441,6.8L451.3,12M358.9,103.1L354.7,105.3L351.9,103.8L349.8,107.1L343,110.9L339.7,115.1L332.8,119.3L335,123.8L336.7,130.3L342.2,133.5L348.7,139.6M308.7,164.2L297.1,160L295.1,163.5L286.1,163.7M272.1,135.1L272.6,128.2L270.5,124.7L271.5,114L269.6,97.5L275.5,97.4L277.8,91.4L279.9,76.9L278,71.5M292.2,47.5L299.2,49.3L304.9,46.5M520,214.4L514.8,214.8L504.6,222.7L506.5,230.3L496.5,234.5L487.1,231.2L479,237.6L470.4,239.1L467.2,229.2L460.4,225.5L461.8,223L460.2,221.4L461,216.1L464.2,210.3L457.3,204.9L455.1,199.6L457,195.5M504.6,222.7L511.2,225.2L510.3,235.7L508,238.1M443,272.4L447.1,263.8L446.8,258.7L450.2,255.7L449.6,251.6L456.9,248.6L460.6,244.3L467,243.3L468.3,240.2L470.4,239.1M427.4,239.3L425.7,234.5L429.3,226L430.5,228.7L433.4,226.8L436.6,230.5L439.6,231.5L441.5,236.9L441.1,242.5L444,248.8L449.6,251.6M410.3,178L413.9,183.5L418.2,187.3L415,193.9L409.5,191.3L402,192.8L392.1,191.7L387.1,192.8L385.2,196.4L380.8,193.3L379.3,200.1L385.7,206.6L388.9,211.1L394.8,216.2L399.7,218.9L404.9,224.7L416,228.9L415.2,231.8M355.7,192.2L363.4,191.9L365.1,189L369.1,191.1L373.4,190.9L372.8,186.5L376.4,184.4L376.6,178L384.5,172.7M318.3,173.6L317.9,180L313.3,183L305.2,181.5L303.2,187.9L298,188.7L296.1,186.3L290.1,191.8L284.9,192.7L280.1,189.5M266.9,134.1L267.9,125.3L270.5,124.7M243.4,105.3L250.6,106.7L259.7,103.5L266,110.4L271.5,114M96.5,239.9L101.4,236.7L106.4,235.2L108.1,243.3L114.9,244.4L117.2,242.7L123.9,244.3L126,252.6L119.9,256L118,268.1L115.7,270.1L114.1,277.4L108.8,277.9L112.1,288L107.2,297.8L110.7,303L108.4,307L102.9,312.2L103.1,317.5M146,36.6L146.5,45.3L143.3,53.4L149.1,54.1L155.6,58.3M355,176.4L354.6,184.2L358,190.5M383.9,139.5L384.8,135.9L389.4,135.5L392.6,133.3L392.6,131.8L394.5,130.7L394.5,127.1L396.8,126L397.9,123L400.8,122.5M415,193.9L419,193.1L417.5,200.4L423.9,205.4L423.6,213L421.1,214.1L419.2,215.9L416.2,220.1L416,228.9M441.5,236.9L443,236.8L442.9,233.5L449.1,229.8L451.5,228.7L455.2,226.9L460.4,225.5M451.5,228.7L450.9,227.6L451.9,225.5L452.4,221.4L450.8,221.9L448,219.5L446,219.1L444,217L441.7,216.5L439.7,214.6L437.8,215.9L437.3,221.3L434.8,222.9L435.5,221.4L430.5,219L426.5,218.1L424.5,216.2L421.1,214.1M434.8,222.9L433.4,226.8"/>
+						<circle class="dot ie" cx="153.8" cy="66.4" r="4" tabindex="0"><title>Dublin, Ireland</title></circle>
+						<circle class="dot ie" cx="127.6" cy="63.5" r="4" tabindex="0"><title>Galway, Ireland</title></circle>
+						<circle class="dot ie" cx="129.4" cy="85.8" r="4" tabindex="0"><title>Cork, Ireland</title></circle>
+						<circle class="dot ie" cx="142.9" cy="76.0" r="4" tabindex="0"><title>Kilkenny, Ireland</title></circle>
+						<circle class="dot ie" cx="136.5" cy="77.0" r="4" tabindex="0"><title>Cashel, Ireland</title></circle>
+						<circle class="dot ie" cx="159.6" cy="47.1" r="4" tabindex="0"><title>Belfast, Northern Ireland</title></circle>
+						<circle class="dot ie" cx="157.3" cy="44.9" r="4" tabindex="0"><title>Antrim, Northern Ireland</title></circle>
+						<circle class="dot" cx="209.7" cy="101.3" r="4" tabindex="0"><title>London, England</title></circle>
+						<circle class="dot" cx="259.0" cy="89.3" r="4" tabindex="0"><title>Amsterdam, Netherlands</title></circle>
+						<circle class="dot" cx="297.1" cy="124.1" r="4" tabindex="0"><title>Frankfurt, Germany</title></circle>
+						<circle class="dot" cx="312.0" cy="150.3" r="4" tabindex="0"><title>Ulm, Germany</title></circle>
+						<circle class="dot" cx="303.3" cy="144.8" r="4" tabindex="0"><title>Stuttgart, Germany</title></circle>
+						<circle class="dot" cx="297.8" cy="135.3" r="4" tabindex="0"><title>Heidelberg, Germany</title></circle>
+						<circle class="dot" cx="242.4" cy="107.5" r="4" tabindex="0"><title>Bruges, Belgium</title></circle>
+						<circle class="dot" cx="253.5" cy="113.3" r="4" tabindex="0"><title>Brussels, Belgium</title></circle>
+						<circle class="dot" cx="254.1" cy="107.5" r="4" tabindex="0"><title>Antwerp, Belgium</title></circle>
+						<circle class="dot" cx="232.6" cy="144.2" r="4" tabindex="0"><title>Paris, France</title></circle>
+						<circle class="dot" cx="270.7" cy="234.7" r="4" tabindex="0"><title>Toulon, France</title></circle>
+						<circle class="dot" cx="287.5" cy="224.6" r="4" tabindex="0"><title>Monaco</title></circle>
+						<circle class="dot" cx="226.6" cy="261.4" r="4" tabindex="0"><title>Barcelona, Spain</title></circle>
+						<circle class="dot" cx="340.6" cy="194.7" r="4" tabindex="0"><title>Venice, Italy</title></circle>
+						<circle class="dot" cx="321.2" cy="223.3" r="4" tabindex="0"><title>Pisa, Italy</title></circle>
+						<circle class="dot" cx="347.7" cy="249.9" r="4" tabindex="0"><title>Rome, Italy</title></circle>
+						<circle class="dot" cx="382.3" cy="341.5" r="4" tabindex="0"><title>Malta</title></circle>
+						<circle class="dot" cx="389.9" cy="219.4" r="4" tabindex="0"><title>Split, Croatia</title></circle>
+						<circle class="dot" cx="410.6" cy="229.8" r="4" tabindex="0"><title>Dubrovnik, Croatia</title></circle>
+						<circle class="dot" cx="86.5" cy="288.7" r="4" tabindex="0"><title>Lisbon, Portugal</title></circle>
+						<circle class="dot" cx="83.7" cy="287.0" r="4" tabindex="0"><title>Sintra, Portugal</title></circle>
+						<circle class="dot" cx="355.1" cy="119.9" r="4" tabindex="0"><title>Prague, Czechia</title></circle>
+						<circle class="dot" cx="440.3" cy="273.0" r="4" tabindex="0"><title>Corfu, Greece</title></circle>
+					</svg>
+				</div>
+				<ul class="legend" aria-hidden="true">
+					<li><span class="sw"></span>Visited</li>
+					<li><span class="sw ie"></span>Ireland, the favorite</li>
+				</ul>
+				<details class="tl-table">
+					<summary>All the places as a list</summary>
+					<ul class="places">
+						<li>Riviera Maya, Mexico</li>
+						<li>Montreal, Canada</li>
+						<li>Quebec City, Canada</li>
+						<li>Seattle, WA</li>
+						<li>Portland, OR</li>
+						<li>Los Angeles, CA</li>
+						<li>Palm Springs, CA</li>
+						<li>Joshua Tree, CA</li>
+						<li>Phoenix, AZ</li>
+						<li>Sedona, AZ</li>
+						<li>Kansas City, MO</li>
+						<li>Orlando, FL</li>
+						<li>Philadelphia, PA</li>
+						<li>Cleveland, OH</li>
+						<li>Cincinnati, OH</li>
+						<li>Buffalo, NY</li>
+						<li>Niagara Falls, NY</li>
+						<li>Syracuse, NY</li>
+						<li>New York, NY (lived in Manhattan, Flushing and Astoria)</li>
+						<li>Providence, RI</li>
+						<li>Burlington, VT</li>
+						<li>Portland, ME</li>
+						<li>Bar Harbor, ME</li>
+						<li>Boston, MA</li>
+						<li>Dublin, Ireland</li>
+						<li>Galway, Ireland</li>
+						<li>Cork, Ireland</li>
+						<li>Kilkenny, Ireland</li>
+						<li>Cashel, Ireland</li>
+						<li>Belfast, Northern Ireland</li>
+						<li>Antrim, Northern Ireland</li>
+						<li>London, England</li>
+						<li>Amsterdam, Netherlands</li>
+						<li>Frankfurt, Germany</li>
+						<li>Ulm, Germany</li>
+						<li>Stuttgart, Germany</li>
+						<li>Heidelberg, Germany</li>
+						<li>Bruges, Belgium</li>
+						<li>Brussels, Belgium</li>
+						<li>Antwerp, Belgium</li>
+						<li>Paris, France</li>
+						<li>Toulon, France</li>
+						<li>Monaco</li>
+						<li>Barcelona, Spain</li>
+						<li>Venice, Italy</li>
+						<li>Pisa, Italy</li>
+						<li>Rome, Italy</li>
+						<li>Malta</li>
+						<li>Split, Croatia</li>
+						<li>Dubrovnik, Croatia</li>
+						<li>Lisbon, Portugal</li>
+						<li>Sintra, Portugal</li>
+						<li>Prague, Czechia</li>
+						<li>Corfu, Greece</li>
 					</ul>
-				</div>
-			</section>
+				</details>
+			</div>
+		</section>
 
-		<!-- One -->
-			<section id="one" class="main style1">
-				<div class="container">
-					<div class="row gtr-150">
-						<div class="col-6 col-12-medium">
-							<header class="major">
-								<h2>I’ve always been interested in computers and technology...</h2>
-							</header>
-							<p> I enjoy seeing a problem and figuring out how to solve it. I find it very rewarding. As computers and technology have advanced, my interest in the field has grown along with it. I am fascinated in how technology works, and how we communicate with it to get certain results. I have worked in New York City, as a theatre technician my entire adult life at a collegiate level, off-Broadway, Broadway and commercially. So, I put a lot of value in creation, connection, and the technicalities that go into producing something that people can interact with. I originally went to undergrad for theatre and psychology and got my degree in psychology. I am a dedicated, hard-working, problem-solver, who likes to take on challenges because they foster growth and learning. I’m also not afraid of failure. I’ve learned some of the most valuable lessons when I have ‘failed’ at something. I take on tasks others get bogged down in, and see them through to the end. I am a patient, thoughtful and kind person. I would say I am not only the go-to person for detail and precision, but I am able to see the bigger picture when necessary. I am excited to continue exploring, creating, and collaborating.</p>
-						</div><div class="column"><object width="525" height="393.75" data="https://live.staticflickr.com/65535/51528404269_8587e2157d_b.jpg"></object></div>
+		<section id="contact">
+			<h2>Get in touch</h2>
+			<p>Send a note and I'll reply by email.</p>
+			<form name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/meqpypgd" method="post">
+				<label for="full-name">Your name</label>
+				<input type="text" name="name" id="full-name" autocomplete="name" required>
+				<label for="email-address">Your email</label>
+				<input type="email" name="_replyto" id="email-address" autocomplete="email" required>
+				<label for="message">Message</label>
+				<textarea rows="5" name="message" id="message" required></textarea>
+				<input type="hidden" name="_subject" value="Contact form submission">
+				<button type="submit">Send message</button>
+			</form>
+		</section>
 
-				
-						<!-- <div class="col-6 col-12-medium imp-medium">
-							<span class="image fit"><img src="https://scontent-bos3-1.xx.fbcdn.net/v/t1.0-9/42327052_10160779208280576_7854794597908611072_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=174925&_nc_ohc=Q68JQ2ld0ZwAX88wp1j&_nc_ht=scontent-bos3-1.xx&oh=cc69a9ffce1ba36a0deb96b7543d2c4d&oe=60767B8B" alt="" /></span>
-						</div> -->
-					</div>
-				</div>
-			</section>
+		<footer>&copy; 2026 George Chris Carter</footer>
+		</div>
+	</main>
+</div>
 
-		<!-- Two -->
-			<section id="two" class="main style2">
-				<div class="container">
-					<div class="row gtr-150">
-						<div class="col-6 col-12-medium">
-							<ul class="major-icons">
-								<li><span class="icon solid style1 major fa-code"></span></li>
-								<li><span class="icon solid style2 major fa-bolt"></span></li>
-								<li><span class="icon solid style3 major fa-music"></span></li>
-								<li><span class="icon solid style4 major fa-code-branch"></span></li>
-								<li><span class="icon solid style5 major fa-desktop"></span></li>
-								<li><span class="icon solid style6 major fa-keyboard"></span></li>
-							</ul>
-						</div>
-						<div class="col-6 col-12-medium">
-							<header class="major">
-								<h1>Portfolio<br />
-								</h1>
-							</header>
-							<p>Stream It!: A web application where users search for a movie/show they want to watch based on a number of different parameters and get a random movie/show suggestion based on what they are interested in watching - created with Ruby, Rails, HTML, CSS, and Vue.js. 
-							</p> <p>Javascript Framework Watcher: A website displaying an interactive dashboard comparing popular Javascript Frameworks based on how many stars, watchers and forks each framework has on Github - created with Vanilla JS, Chart.js, HTML, CSS, and the Github API.<p>2016 State Data API Map: An interactive map displaying U.S. state data from 2016 regarding median household income, seasonal unemployment rates, the percentage of population in metro areas, and the percentage of population with a high school diploma - created with Ruby on Rails, VueJS, HTML, CSS, Google Geocharts. Backend JSON API created by seeding data from CSV files. </p>  
-							<div class="text-center"><a href="https://docs.google.com/document/d/e/2PACX-1vRVWkq3geiU_N27ttp-QepGS9cInz03OX6M-ixvdebXyCB-zjcnEbqBg0AM2iDvi1AFSEnK1WqT2ja4/pub" class="button">Resume</a>
-								<a href="https://agile-brook-55919.herokuapp.com/" class="button">Stream-It</a>
-								<p><a href="https://javascript-framework-watcher.herokuapp.com/" class="button">JS Framework Watcher</a><a href="https://state-data-api-2016.herokuapp.com/" class="button">2016 State Data API Map  </a></p></div></div>
-								</div></div>
-						</div>
-					</div>
-				</div>
-			</section>
+<script>
+(function () {
+	// Theme toggle, remembered per browser.
+	var root = document.documentElement;
+	var btn = document.getElementById('theme-toggle');
+	function current() {
+		var set = root.getAttribute('data-theme');
+		if (set) return set;
+		return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+	function paint() {
+		var dark = current() === 'dark';
+		btn.textContent = dark ? 'Light mode' : 'Dark mode';
+		btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+	}
+	btn.addEventListener('click', function () {
+		var next = current() === 'dark' ? 'light' : 'dark';
+		root.setAttribute('data-theme', next);
+		try { localStorage.setItem('theme', next); } catch (e) {}
+		paint();
+	});
+	paint();
 
-		<!-- Three -->
-			<section id="three" class="main style1 special">
-				<div class="container">
-					<header class="major">
-						<h2>When I'm Not Behind the Desk</h2>
-					</header>
-					<p>Things I Like To Do</p>
-					<div class="row gtr-150">
-						<div class="col-4 col-12-medium">
-							<span class="image fit"><img src="https://media.istockphoto.com/photos/standing-woman-on-the-hill-against-mountain-valley-at-bright-sunny-picture-id917911572?k=6&m=917911572&s=612x612&w=0&h=X2-U9jpmTkViEm-kBXXp_6ezuOgdEJRCQcRKN5azE4Y=" alt="" /></span>
-							<h3>Hiking</h3>
-							<p>I love to get outdoors and explore whenever I can. It's a great way to get out and see the world from a different perspective. The sense of accomplishment you get from conquering a mountain is so rewarding. </p>
-							<ul class="actions special">
-								<!-- <li><a href="#" class="button">More</a></li> -->
-							</ul>
-						</div>
-						<div class="col-4 col-12-medium">
-							<span class="image fit"><img src="https://media.istockphoto.com/photos/old-genealogy-family-history-photographs-and-documents-4-picture-id1143734834?k=6&m=1143734834&s=612x612&w=0&h=hlXnenEm_EKkr9hXPoiRJo0SHunQ8owfZfDqazidP-M=" alt="" /></span>
-							<h3>Genealogy</h3>
-							<p>I come from a long line of storytellers. My family has always been very interested in their history. That passion and interest was passed on to me and I have carefully cultivated a family tree with over 21K ancestors and counting.  </p>
-							<ul class="actions special">
-								<!-- <li><a href="#" class="button">More</a></li> -->
-							</ul>
-						</div>
-						<div class="col-4 col-12-medium">
-							<span class="image fit"><img src="https://media.istockphoto.com/photos/travel-illustration-worlds-famous-landmarks-and-tourist-destinations-picture-id1131877134?k=6&m=1131877134&s=612x612&w=0&h=3VKl0HrRk6Xo0vgzktjRMTuwuOCUgzP41mEiVDxxwYw=" alt="" /></span>
-							<h3>Travel</h3>
-							<p>I absolutely love to travel. I think it's a great way to meet people, and to learn and grow. Some of my favorite places to visit are France, Spain, England and Ireland.</p>
-							<ul class="actions special">
-								<!-- <li><a href="#" class="button">More</a></li> -->
-							</ul>
-						</div>
-					</div>
-				</div>
-			</section>
-
-		<!-- Four -->
-			<section id="four" class="main style2 special">
-				<div class="container">
-					<header class="major">
-						<h2>Want to get in touch?</h2>
-					</header>
-					<p>I'd love to hear from you. Let's work together!<form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/meqpypgd" method="post">
-						<fieldset id="fs-frm-inputs">
-							<label for="full-name">Full Name</label>
-							<input type="text" name="name" id="full-name" placeholder="First and Last Name" required="">
-							<label for="email-address">Email Address</label>
-							<input type="email" name="_replyto" id="email-address" placeholder="email@domain.com" required="">
-							<label for="message">Message</label>
-							<textarea rows="5" name="message" id="message" placeholder="Please write a brief message and I'll get back to you. Looking forward to being in-touch!" required=""></textarea>
-							<input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
-						</fieldset>
-					</form></p>
-					<input type="submit" value="Submit">
-					<!-- <ul class="actions special">
-						<li><a href="#" class="button wide primary">Email</a></li>
-						<li><a href="#" class="button wide">Contact Info</a></li>
-					</ul> -->
-				</div>
-			</section>
-
-		<!-- Five -->
-		<!--
-			<section id="five" class="main style1">
-				<div class="container">
-					<header class="major special">
-						<h2>Elements</h2>
-					</header>
-
-					<section>
-						<h4>Text</h4>
-						<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-						This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-						This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-						<hr />
-						<header>
-							<h4>Heading with a Subtitle</h4>
-							<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-						</header>
-						<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-						<header>
-							<h5>Heading with a Subtitle</h5>
-							<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-						</header>
-						<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-						<hr />
-						<h2>Heading Level 2</h2>
-						<h3>Heading Level 3</h3>
-						<h4>Heading Level 4</h4>
-						<h5>Heading Level 5</h5>
-						<h6>Heading Level 6</h6>
-						<hr />
-						<h5>Blockquote</h5>
-						<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-						<h5>Preformatted</h5>
-						<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-print 'Iteration ' + i;
-deck.shuffle();
-i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-					</section>
-
-					<section>
-						<h4>Lists</h4>
-						<div class="row">
-							<div class="col-6 col-12-medium">
-								<h5>Unordered</h5>
-								<ul>
-									<li>Dolor pulvinar etiam.</li>
-									<li>Sagittis adipiscing.</li>
-									<li>Felis enim feugiat.</li>
-								</ul>
-								<h5>Alternate</h5>
-								<ul class="alt">
-									<li>Dolor pulvinar etiam.</li>
-									<li>Sagittis adipiscing.</li>
-									<li>Felis enim feugiat.</li>
-								</ul>
-							</div>
-							<div class="col-6 col-12-medium">
-								<h5>Ordered</h5>
-								<ol>
-									<li>Dolor pulvinar etiam.</li>
-									<li>Etiam vel felis viverra.</li>
-									<li>Felis enim feugiat.</li>
-									<li>Dolor pulvinar etiam.</li>
-									<li>Etiam vel felis lorem.</li>
-									<li>Felis enim et feugiat.</li>
-								</ol>
-								<h5>Icons</h5>
-								<ul class="icons">
-									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-								</ul>
-							</div>
-						</div>
-						<h5>Actions</h5>
-						<div class="row">
-							<div class="col-6 col-12-medium">
-								<ul class="actions">
-									<li><a href="#" class="button primary">Default</a></li>
-									<li><a href="#" class="button">Default</a></li>
-								</ul>
-								<ul class="actions small">
-									<li><a href="#" class="button primary small">Small</a></li>
-									<li><a href="#" class="button small">Small</a></li>
-								</ul>
-								<ul class="actions stacked">
-									<li><a href="#" class="button primary">Default</a></li>
-									<li><a href="#" class="button">Default</a></li>
-								</ul>
-								<ul class="actions stacked">
-									<li><a href="#" class="button primary small">Small</a></li>
-									<li><a href="#" class="button small">Small</a></li>
-								</ul>
-							</div>
-							<div class="col-6 col-12-medium">
-								<ul class="actions stacked">
-									<li><a href="#" class="button primary fit">Default</a></li>
-									<li><a href="#" class="button fit">Default</a></li>
-								</ul>
-								<ul class="actions stacked">
-									<li><a href="#" class="button primary small fit">Small</a></li>
-									<li><a href="#" class="button small fit">Small</a></li>
-								</ul>
-							</div>
-						</div>
-					</section>
-
-					<section>
-						<h4>Table</h4>
-						<h5>Default</h5>
-						<div class="table-wrapper">
-							<table>
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Description</th>
-										<th>Price</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Item One</td>
-										<td>Ante turpis integer aliquet porttitor.</td>
-										<td>29.99</td>
-									</tr>
-									<tr>
-										<td>Item Two</td>
-										<td>Vis ac commodo adipiscing arcu aliquet.</td>
-										<td>19.99</td>
-									</tr>
-									<tr>
-										<td>Item Three</td>
-										<td> Morbi faucibus arcu accumsan lorem.</td>
-										<td>29.99</td>
-									</tr>
-									<tr>
-										<td>Item Four</td>
-										<td>Vitae integer tempus condimentum.</td>
-										<td>19.99</td>
-									</tr>
-									<tr>
-										<td>Item Five</td>
-										<td>Ante turpis integer aliquet porttitor.</td>
-										<td>29.99</td>
-									</tr>
-								</tbody>
-								<tfoot>
-									<tr>
-										<td colspan="2"></td>
-										<td>100.00</td>
-									</tr>
-								</tfoot>
-							</table>
-						</div>
-
-						<h5>Alternate</h5>
-						<div class="table-wrapper">
-							<table class="alt">
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Description</th>
-										<th>Price</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Item One</td>
-										<td>Ante turpis integer aliquet porttitor.</td>
-										<td>29.99</td>
-									</tr>
-									<tr>
-										<td>Item Two</td>
-										<td>Vis ac commodo adipiscing arcu aliquet.</td>
-										<td>19.99</td>
-									</tr>
-									<tr>
-										<td>Item Three</td>
-										<td> Morbi faucibus arcu accumsan lorem.</td>
-										<td>29.99</td>
-									</tr>
-									<tr>
-										<td>Item Four</td>
-										<td>Vitae integer tempus condimentum.</td>
-										<td>19.99</td>
-									</tr>
-									<tr>
-										<td>Item Five</td>
-										<td>Ante turpis integer aliquet porttitor.</td>
-										<td>29.99</td>
-									</tr>
-								</tbody>
-								<tfoot>
-									<tr>
-										<td colspan="2"></td>
-										<td>100.00</td>
-									</tr>
-								</tfoot>
-							</table>
-						</div>
-					</section>
-
-					<section>
-						<h4>Buttons</h4>
-						<ul class="actions">
-							<li><a href="#" class="button primary">Primary</a></li>
-							<li><a href="#" class="button">Default</a></li>
-						</ul>
-						<ul class="actions">
-							<li><a href="#" class="button large">Large</a></li>
-							<li><a href="#" class="button">Default</a></li>
-							<li><a href="#" class="button small">Small</a></li>
-						</ul>
-						<ul class="actions fit">
-							<li><a href="#" class="button fit">Fit</a></li>
-							<li><a href="#" class="button primary fit">Fit</a></li>
-							<li><a href="#" class="button fit">Fit</a></li>
-						</ul>
-						<ul class="actions fit small">
-							<li><a href="#" class="button primary fit small">Fit + Small</a></li>
-							<li><a href="#" class="button fit small">Fit + Small</a></li>
-							<li><a href="#" class="button primary fit small">Fit + Small</a></li>
-						</ul>
-						<ul class="actions">
-							<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-							<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-						</ul>
-						<ul class="actions">
-							<li><span class="button primary disabled">Disabled</span></li>
-							<li><span class="button disabled">Disabled</span></li>
-						</ul>
-					</section>
-
-					<section>
-						<h4>Form</h4>
-						<form method="post" action="#">
-							<div class="row gtr-uniform gtr-50">
-								<div class="col-6 col-12-xsmall">
-									<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
-								</div>
-								<div class="col-6 col-12-xsmall">
-									<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
-								</div>
-								<div class="col-12">
-									<select name="demo-category" id="demo-category">
-										<option value="">- Category -</option>
-										<option value="1">Manufacturing</option>
-										<option value="1">Shipping</option>
-										<option value="1">Administration</option>
-										<option value="1">Human Resources</option>
-									</select>
-								</div>
-								<div class="col-4 col-12-small">
-									<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-									<label for="demo-priority-low">Low</label>
-								</div>
-								<div class="col-4 col-12-small">
-									<input type="radio" id="demo-priority-normal" name="demo-priority">
-									<label for="demo-priority-normal">Normal</label>
-								</div>
-								<div class="col-4 col-12-small">
-									<input type="radio" id="demo-priority-high" name="demo-priority">
-									<label for="demo-priority-high">High</label>
-								</div>
-								<div class="col-6 col-12-small">
-									<input type="checkbox" id="demo-copy" name="demo-copy">
-									<label for="demo-copy">Email me a copy</label>
-								</div>
-								<div class="col-6 col-12-small">
-									<input type="checkbox" id="demo-human" name="demo-human" checked>
-									<label for="demo-human">Not a robot</label>
-								</div>
-								<div class="col-12">
-									<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-								</div>
-								<div class="col-12">
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Reset" /></li>
-									</ul>
-								</div>
-							</div>
-						</form>
-					</section>
-
-					<section>
-						<h4>Image</h4>
-						<h5>Fit</h5>
-						<div class="box alt">
-							<div class="row gtr-uniform gtr-50">
-								<div class="col-12"><span class="image fit"><img src="images/pic06.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-							</div>
-						</div>
-						<h5>Left &amp; Right</h5>
-						<p><span class="image left"><img src="images/pic05.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-						<p><span class="image right"><img src="images/pic05.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-					</section>
-
-				</div>
-			</section>
-		-->
-
-		<!-- Footer -->
-			<section id="footer">
-				<ul class="icons">
-					<!-- <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li> -->
-					<!-- <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li> -->
-					<li><a href="https://www.linkedin.com/in/georgechriscarter/" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-					<li><a href="https://github.com/gcarter24" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-					<!-- <li><a href="gchriscarter@gmail.com" class="icon solid alt fa-envelope"><span class="label">Mail</span></a></li> -->
-				</ul>
-				<ul class="copyright">
-					<li>&copy; George Chris Carter 2021</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-				</ul>
-			</section>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+	// Mark the section in view in the rail nav.
+	var links = Array.prototype.slice.call(document.querySelectorAll('.rail nav a[href^="#"]'));
+	var sections = links.map(function (a) { return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+	if ('IntersectionObserver' in window && sections.length) {
+		var visible = {};
+		var io = new IntersectionObserver(function (entries) {
+			entries.forEach(function (e) { visible[e.target.id] = e.isIntersecting ? e.intersectionRatio : 0; });
+			var best = null, bestRatio = 0;
+			sections.forEach(function (s) { if ((visible[s.id] || 0) > bestRatio) { bestRatio = visible[s.id]; best = s.id; } });
+			links.forEach(function (a) {
+				if (best && a.getAttribute('href') === '#' + best) a.setAttribute('aria-current', 'true');
+				else a.removeAttribute('aria-current');
+			});
+		}, { rootMargin: '-20% 0px -60% 0px', threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] });
+		sections.forEach(function (s) { io.observe(s); });
+	}
+})();
+</script>
+</body>
 </html>
