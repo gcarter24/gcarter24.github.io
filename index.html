@@ -338,7 +338,7 @@
 			<dl class="figures">
 				<div><dt>10</dt><dd>production apps I own</dd></div>
 				<div><dt>400</dt><dd>protocols through OCR since December 2025</dd></div>
-				<div><dt>92,000</dt><dd>evaluations processed in Evals on my watch</dd></div>
+				<div><dt>40,000</dt><dd>evaluations a year through Evals</dd></div>
 				<div><dt>5 to 8</dt><dd>Rails versions carried across the portfolio</dd></div>
 			</dl>
 
@@ -409,7 +409,7 @@
 				<li>
 					<div><h3>OCR</h3><div class="when">2025 to now, sole developer</div></div>
 					<div>
-						<p>Protocol submission and multi-stage review platform for the Office for Clinical Research. Designed and built from an empty repository; live since December 2025, with every approved protocol synced to two downstream research-center systems over an API I also wrote.</p>
+						<p>Protocol submission and multi-stage review platform for the Office for Clinical Research. Designed and built from an empty repository; live since December 2025, with 200 study teams across 35 institutions submitting through it and every approved protocol synced to two downstream research-center systems over an API I also wrote.</p>
 						<div class="stack"><span>Rails 8.1</span><span>Solid Queue</span><span>Stimulus</span><span>Docker</span><span>GitHub Actions</span><span>AWS</span></div>
 						<details>
 							<summary>What went into it</summary>
@@ -426,7 +426,7 @@
 				<li>
 					<div><h3>OAWA</h3><div class="when">2026 to now, sole developer</div></div>
 					<div>
-						<p>Facility inspection, findings and corrective-action tracking for the Office of Animal Welfare Assurance and its IACUC. Built from scratch, including escalation rules, templated email and a nightly facility-data import.</p>
+						<p>Facility inspection, findings and corrective-action tracking for the Office of Animal Welfare Assurance and its IACUC, covering 13,000 rooms. Built from scratch, including escalation rules, templated email and a nightly facility-data import.</p>
 						<div class="stack"><span>Rails 8.1</span><span>Solid Queue</span><span>Hotwire</span><span>RSpec</span></div>
 						<details>
 							<summary>What went into it</summary>
@@ -442,7 +442,7 @@
 				<li>
 					<div><h3>LabSec</h3><div class="when">2025 to now, lead developer</div></div>
 					<div>
-						<p>Laboratory safety inspection and compliance system. I led its rewrite from an Ember front end into a single Rails application: surveys and events, corrective actions and reminders, and a space-data sync with the facilities system.</p>
+						<p>Laboratory safety inspection and compliance system covering 20,000 rooms and 4,000 PI sites across five institutions, with about 400 inspections a year. I led its rewrite from an Ember front end into a single Rails application: surveys and events, corrective actions and reminders, and a space-data sync with the facilities system.</p>
 						<div class="stack"><span>Rails 7.2 to 8.1</span><span>Stimulus</span><span>esbuild</span><span>Pundit</span></div>
 						<details>
 							<summary>What went into it</summary>
@@ -458,12 +458,12 @@
 				<li>
 					<div><h3>Evals</h3><div class="when">2022 to now, primary developer</div></div>
 					<div>
-						<p>The enterprise performance-evaluation system, synced with HR identity data. Employee search, a rewritten bulk importer, optimized notification jobs and the PeopleSoft-to-Workday transition.</p>
+						<p>The enterprise performance-evaluation system: 260,000 employee records across 30 institutions, about 40,000 evaluations a year and more than 140,000 logins over five months, synced with HR identity data. Employee search, a rewritten bulk importer, optimized notification jobs and the PeopleSoft-to-Workday transition.</p>
 						<div class="stack"><span>Rails 8.1</span><span>Delayed Job</span><span>MySQL</span></div>
 						<details>
 							<summary>What went into it</summary>
 							<ul>
-								<li>Roughly 92,000 evaluations processed during my time on it, across the workflow rules, second-evaluator logic and reporting-structure checks I added.</li>
+								<li>About 40,000 evaluations a year run through the workflow rules, second-evaluator logic and reporting-structure checks I added, on a record set of 260,000 employees. Sessions average ten minutes and seven pages, so the review screens get real use.</li>
 								<li>Rewrote the bulk employee-record importer and the identity sync so the overnight load finishes in a fraction of the time.</li>
 								<li>Carried it from Rails 5.1 through 6, 7 and 8, clearing the deprecations at each step.</li>
 								<li>Reworked notifications, HR links and countdown reminder emails when the organization moved from PeopleSoft to Workday.</li>
@@ -505,7 +505,7 @@
 				<li>
 					<div><h3>iSuggest and EDC</h3><div class="when">2022 to now, maintainer</div></div>
 					<div>
-						<p>An enterprise suggestion platform I rewrote, with a Microsoft Graph inbox integration, and the Ether Dome Challenge innovation-contest site, which I keep current through each framework upgrade.</p>
+						<p>An enterprise suggestion platform I rewrote, with a Microsoft Graph inbox integration, and the Ether Dome Challenge innovation-contest site, with 11,000 registered participants across eight contests, which I keep current through each framework upgrade.</p>
 						<div class="stack"><span>Rails 8.1</span><span>Microsoft Graph</span><span>Bootstrap</span></div>
 						<details>
 							<summary>What went into it</summary>
